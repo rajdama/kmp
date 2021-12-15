@@ -1,12 +1,17 @@
 let btn = document.getElementById('btn')
 let output = document.getElementById('output')
 
-btn.addEventListener("click",()=>{
+btn.addEventListener("click", () => {
     text = document.getElementById("text").value
     pattern = document.getElementById("pattern").value
     let res = kmpMatching(text, pattern)
-    output.innerHTML = `Pattern found at index ${res}`
-    
+    if (res.length==0) {
+        output.innerHTML = `Pattern not found`
+    }
+    else {
+        output.innerHTML = `Pattern found at index ${res}`
+    }
+
 })
 
 function longestPrefix(str) {
